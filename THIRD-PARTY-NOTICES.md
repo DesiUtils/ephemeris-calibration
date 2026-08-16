@@ -5,8 +5,9 @@ separates them.
 
 ## DesiUtils code, MIT
 
-`lib/astrology/ephemeris.ts`, `lib/astrology/ayanamsa.ts`, `lib/astrology/astronomia.d.ts` and the
-three files in `scripts/` are DesiUtils code, licensed MIT. See `LICENSE`.
+`lib/astrology/ephemeris.ts`, `lib/astrology/ayanamsa.ts`, `lib/astrology/astronomia.d.ts` and all
+four files in `scripts/` (the three measurement harnesses plus `verify-evidence-hashes.mjs`) are
+DesiUtils code, licensed MIT. See `LICENSE`.
 
 `lib/astrology/astronomia.d.ts` is a hand-written TypeScript declaration describing the astronomia
 API surface used here. It is DesiUtils-authored and MIT licensed; it is not distributed by the

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Frozen calibration artifact for the DesiUtils browser ephemeris: harnesses, raw JPL Horizons inputs and regenerated outputs for a time-scale defect and a nutation-convention defect.",
-  "license": "MIT",
+  "license": "SEE LICENSE IN THIRD-PARTY-NOTICES.md",
   "engines": {
     "node": ">=22.15.1 <23"
   },

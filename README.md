@@ -95,7 +95,10 @@ For the sidereal defect specifically, the probe is a **frozen pre-fix diagnostic
 removed implementation's residual term algebraically but does not execute that implementation. Its
 present-tense reference to "our `toSidereal`" and its `openQuestion` output field are historical.
 The reviewer-reported Swiss default-versus-`SEFLG_NONUT` check recorded in
-`swiss-production-audit.md` subsequently closed that question.
+`swiss-production-audit.md` subsequently closed the engineering choice for the stated
+Swiss-compatibility target. It does **not** independently settle the broader question of which
+convention is correct for Vedic practice, which is a question about what Lahiri means rather than
+about arithmetic, and the probe's own docblock says so.
 
 The three measurement harnesses and the evidence files are byte-identical to their state in the
 source repository. They were not edited for publication, which is why the stale "AS SHIPPED"
@@ -105,10 +108,12 @@ two documented comment corrections, and for the files added specifically for thi
 ## Layout
 
 ```
-lib/astrology/ephemeris.ts       trimmed, see PROVENANCE.md
-lib/astrology/ayanamsa.ts        verbatim
-lib/astrology/astronomia.d.ts    trimmed, see PROVENANCE.md
-scripts/                         three harnesses, verbatim
+lib/astrology/ephemeris.ts            trimmed, see PROVENANCE.md
+lib/astrology/ayanamsa.ts             comment corrections; see PROVENANCE.md
+lib/astrology/astronomia.d.ts         trimmed, see PROVENANCE.md
+scripts/ephemeris-*.ts                two harnesses, verbatim
+scripts/sidereal-*.ts                 one harness, verbatim
+scripts/verify-evidence-hashes.mjs    written for this artifact, not upstream
 docs/evidence/ephemeris-calibration/
     swiss-production-audit.md    reviewer-reported Swiss matrix
     horizons-*.txt               raw JPL Horizons fetches, 8 files

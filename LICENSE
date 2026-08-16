@@ -1,3 +1,10 @@
+SCOPE NOTICE: this MIT grant applies ONLY to the DesiUtils-authored code in
+lib/astrology/ and scripts/. It does not extend to the retained NASA/JPL
+Horizons responses in docs/evidence/, for which no reuse basis is asserted, nor
+to any other third-party material. The MIT text below refers broadly to "this
+software and associated documentation files"; read that phrase as bounded by
+this notice. See THIRD-PARTY-NOTICES.md.
+
 MIT License
 
 Copyright (c) 2026 DesiUtils

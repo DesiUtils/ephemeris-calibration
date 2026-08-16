@@ -2,16 +2,16 @@
 
 ## Source
 
-The three measurement harnesses in `scripts/`, both modules in `lib/astrology/`, and every file in
-`docs/evidence/` were extracted from the private DesiUtils repository at commit `a0d6b62` on
-`main`.
+The three measurement harnesses in `scripts/`, all three files in `lib/astrology/` (both modules
+and the `astronomia.d.ts` declaration file), and every file in `docs/evidence/` were extracted from
+the private DesiUtils repository at commit `a0d6b62` on `main`.
 
 **Not everything here came from that commit.** The following were written specifically for this
 public artifact and exist at no upstream commit:
 
 - `scripts/verify-evidence-hashes.mjs`, the evidence hash verifier
 - `README.md`, `PROVENANCE.md`, `CLAIM-CHANGES.md`, `THIRD-PARTY-NOTICES.md`, `LICENSE`,
-  `CITATION.cff`, `.zenodo.json`, `SHA256SUMS.txt`
+  `CITATION.cff`, `SHA256SUMS.txt`
 - `package.json`, `package-lock.json`, `tsconfig.json`, `.nvmrc`, `.gitignore`
 
 An earlier draft of this file said every `scripts/` file came from `a0d6b62` and that nothing had
@@ -24,7 +24,8 @@ its own limits; it is reproduced here without edits.
 
 ## What was modified for publication
 
-Two files were trimmed. Nothing else was altered, and no file had content added.
+Two files were trimmed, and `lib/astrology/ayanamsa.ts` received the two comment-only corrections
+documented below. No other upstream-derived file was altered.
 
 **`lib/astrology/ephemeris.ts`, 605 lines to 479.**
 
@@ -91,12 +92,21 @@ private institution, and JPL's own guidance states that the federal copyright li
 automatically apply to Caltech-produced material, so the "US Government work, not subject to
 copyright" reasoning an earlier draft used does not hold.
 
-**Consequence for Zenodo:** a deposit-wide licence field would assert that licence over every
-deposited file, including those. So `.zenodo.json` declares **no** `license`, and `CITATION.cff`
-declares no work-wide `license` either. Before enabling the Zenodo integration, either obtain a
-specific redistribution basis for the raw responses or split the code and the reference data into
-two separately licensed deposits. Until that is resolved, the absence of the field is intentional
-and should not be "fixed".
+**Consequence for Zenodo: there is deliberately no `.zenodo.json` in this repository, and it must
+not be re-added until the question below is settled.**
+
+An earlier draft carried one with the `license` field removed, on the reasoning that omitting the
+field avoids asserting a licence over the Horizons responses. **That reasoning was wrong.** Zenodo
+requires a licence for an open deposit and applies a default when none is supplied, `cc-zero` for
+`upload_type: dataset`. Omitting the field therefore does not avoid a deposit-wide assertion; it
+silently produces a public-domain dedication over every file, which is a stronger claim than the
+MIT one it was meant to prevent, and it would contradict the deposit's own description.
+
+So the metadata file was deleted rather than weakened. **Do not enable the Zenodo integration and
+do not cut a GitHub release** until either a specific redistribution basis for the raw Horizons
+responses is obtained, or the code and the reference data are split into two separately licensed
+deposits. `CITATION.cff` may remain without a licence field; it makes no deposit and asserts
+nothing.
 
 ## Integrity
 
