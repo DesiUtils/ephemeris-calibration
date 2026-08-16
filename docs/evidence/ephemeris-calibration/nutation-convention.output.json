@@ -1,0 +1,26 @@
+{
+  "generatedBy": "scripts/sidereal-nutation-convention-probe.ts",
+  "note": "Magnitude of nutation in longitude over the calibration epochs, computed with the SAME astronomia routine the engine uses. Tests the prediction that (our sidereal - Swiss sidereal) == dPsi, which follows if we subtract a MEAN ayanamsa from an APPARENT tropical longitude while Swiss subtracts a true (nutation-inclusive) one. Confirms magnitude only; it does NOT establish which convention is correct for Vedic practice, which needs a direct Swiss default-vs-NONUT comparison and a JHora cross-check.",
+  "ayanamsaIsExactlyLinearInJd": true,
+  "epochs": 1782,
+  "absNutationInLongitudeArcsec": {
+    "median": 12.09,
+    "p90": 17.14,
+    "p99": 18.41,
+    "max": 18.82
+  },
+  "reviewerSwissAudit": {
+    "source": "Swiss Ephemeris 2.10.03 Lahiri, same 1782 epochs, reviewer-supplied and NOT reproduced here",
+    "sixNonMoonBodies": {
+      "median": "11.7-12.0",
+      "p99": "19.0-21.8",
+      "max": "<=23.5"
+    },
+    "moon": {
+      "median": 28.8,
+      "p99": 66.5,
+      "max": 71.4
+    }
+  },
+  "openQuestion": "Which convention should ship: retain nutation in sidereal, subtract a nutation-inclusive ayanamsa, or keep distinct apparent-tropical and mean-sidereal paths. Any fix belongs at the sidereal-conversion boundary, never in the tropical engine."
+}

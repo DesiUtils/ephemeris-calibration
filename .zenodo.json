@@ -1,0 +1,31 @@
+{
+  "title": "DesiUtils ephemeris calibration",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "DesiUtils"
+    }
+  ],
+  "description": "<p>A frozen calibration artifact for the DesiUtils browser ephemeris. It contains the harnesses, the retained JPL Horizons reference fetches and the regenerated outputs behind two defects found and fixed in the engine.</p><p><strong>Finding 1.</strong> UT-tagged Julian days were passed to routines expecting dynamical-time JDE. Converting each body's longitude error into the time offset that would explain it, the five faster bodies (Moon, Sun, Mercury, Venus, Mars) imply a median lag of roughly 61 seconds on the retained 1900-2100 grid, despite differing in speed by more than two orders of magnitude. The offset is epoch-dependent and tracks delta-T; it is not a constant. Jupiter and Saturn are too slow for the diagnostic to be meaningful and are not evidence for it.</p><p><strong>Finding 2.</strong> Sidereal longitudes retained nutation in longitude, because a mean ayanamsa was subtracted from an apparent tropical longitude. Swiss Ephemeris' own programming documentation warns against this. The included probe confirms the magnitude prediction using the same nutation routine the engine uses.</p><p><strong>Reproducibility boundary.</strong> The JPL Horizons legs and the nutation-in-longitude distribution regenerate byte-for-byte from this artifact. The Swiss Ephemeris confirmation matrix it also records was run externally by a reviewer and is <em>not</em> reproduced here; no Swiss Ephemeris code or data is redistributed and no script invokes it.</p><p>This is a single-release evidence package, not a maintained library and not the DesiUtils SDK.</p>",
+  "keywords": [
+    "ephemeris",
+    "VSOP87",
+    "delta-T",
+    "nutation",
+    "sidereal",
+    "ayanamsa",
+    "Lahiri",
+    "calibration",
+    "reproducibility",
+    "JPL Horizons"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://desiutils.in/blog/kundli-calculator-accuracy",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ]
+}

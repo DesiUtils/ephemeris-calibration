@@ -1,0 +1,644 @@
+{
+  "generatedBy": "scripts/ephemeris-timescale-control.ts",
+  "note": "Raw vs time-scale-corrected engine longitude error against JPL Horizons. The clock value is Horizons' own per-epoch TDB-UT (QUANTITIES='30'), not a modelled delta-T. Correction is jde = jdTimeTag + tdbMinusUtSeconds/86400, applied to PLANETARY POSITIONS ONLY - sidereal time and the Ascendant are UT1 functions and must not be shifted by it. Horizons freezes TDB-UT once leap-second predictions end (69.182665 s at 2049, 69.183148 s at 2099), so corrected figures in the modern tail inherit that freeze. All figures are over sampled positions at a 41-day cadence and are NOT continuous bounds. The shipped leg runs the PRODUCTION helper (astronomia deltaT) against the same reference, binned by the model branch regimes measured in panchang Q9 B3 Rev 5; past 2032 neither astronomia nor the frozen Horizons conversion is truth, so that regime quantifies model disagreement, not error. Attribution: Rev 5 evidence stops at 2033.75; all deep-century figures are this script own measurement. The 2050 poly2000 hand-off joins smoothly (~0.01 s) - only 2032 steps.",
+  "rawLegReproducesCommittedArtifact": true,
+  "correction": "jde = jdTimeTag + tdbMinusUtSeconds / 86400 (ADDS the offset; the inferred lag is its negation)",
+  "clockSource": "docs/evidence/ephemeris-calibration/horizons-timescale.txt (OBSERVER, QUANTITIES='30,31', same cadence)",
+  "sampledPositions": 12474,
+  "regimeBoundaries": {
+    "dataFirstDyear": 1973.08493,
+    "dataToPrediction": {
+      "dyear": 2023.07877,
+      "stepSeconds": -1.0037
+    },
+    "predictionToPoly": {
+      "dyear": 2032,
+      "stepSeconds": 8.4844
+    }
+  },
+  "branchStepWitness2032": {
+    "localDate": "2032-01-01 (IST)",
+    "deltaTAt0500ISTSeconds": 70.4681,
+    "deltaTAt0600ISTSeconds": 78.9526,
+    "stepSeconds": 8.4845,
+    "moonArcsecEquivalent": 4.66
+  },
+  "results": [
+    {
+      "body": "Moon",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 32.47,
+        "p99Arcsec": 47.4,
+        "largestSampledArcsec": 52.02,
+        "meanSignedArcsec": -27.81
+      },
+      "corrected": {
+        "medianArcsec": 1.68,
+        "p99Arcsec": 7.53,
+        "largestSampledArcsec": 12.27,
+        "meanSignedArcsec": -0.11,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 1.59,
+            "p99Arcsec": 7.02,
+            "largestSampledArcsec": 12.27
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 1.69,
+            "p99Arcsec": 8.68,
+            "largestSampledArcsec": 10.21
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 1.98,
+            "p99Arcsec": 6.35,
+            "largestSampledArcsec": 6.52
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 1.74,
+            "p99Arcsec": 7.22,
+            "largestSampledArcsec": 9.4
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 3.01,
+        "p99Arcsec": 73.58,
+        "largestSampledArcsec": 86.45,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 1.53,
+            "p99Arcsec": 7,
+            "largestSampledArcsec": 11.86
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 1.77,
+            "p99Arcsec": 8.95,
+            "largestSampledArcsec": 10.15
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 1.92,
+            "p99Arcsec": 6.49,
+            "largestSampledArcsec": 6.64
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 31.08,
+            "p99Arcsec": 81.35,
+            "largestSampledArcsec": 86.45
+          }
+        ]
+      },
+      "medianImprovementFactor": 19.3,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1782,
+        "median": 0.03,
+        "p10": -6.08,
+        "p90": 5.74
+      }
+    },
+    {
+      "body": "Sun",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 2.46,
+        "p99Arcsec": 2.76,
+        "largestSampledArcsec": 2.76,
+        "meanSignedArcsec": -1.96
+      },
+      "corrected": {
+        "medianArcsec": 0.13,
+        "p99Arcsec": 0.2,
+        "largestSampledArcsec": 0.21,
+        "meanSignedArcsec": 0.11,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.03,
+            "p99Arcsec": 0.05,
+            "largestSampledArcsec": 0.06
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.12,
+            "p99Arcsec": 0.2,
+            "largestSampledArcsec": 0.21
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.19,
+            "p99Arcsec": 0.21,
+            "largestSampledArcsec": 0.21
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.19,
+            "p99Arcsec": 0.2,
+            "largestSampledArcsec": 0.21
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 0.12,
+        "p99Arcsec": 5.46,
+        "largestSampledArcsec": 5.82,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.03,
+            "p99Arcsec": 0.05,
+            "largestSampledArcsec": 0.06
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.12,
+            "p99Arcsec": 0.2,
+            "largestSampledArcsec": 0.21
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.2,
+            "p99Arcsec": 0.25,
+            "largestSampledArcsec": 0.25
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 2.52,
+            "p99Arcsec": 5.61,
+            "largestSampledArcsec": 5.82
+          }
+        ]
+      },
+      "medianImprovementFactor": 19.5,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1782,
+        "median": 3.04,
+        "p10": 0.64,
+        "p90": 4.76
+      }
+    },
+    {
+      "body": "Mercury",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 2.24,
+        "p99Arcsec": 6.01,
+        "largestSampledArcsec": 6.27,
+        "meanSignedArcsec": -2.05
+      },
+      "corrected": {
+        "medianArcsec": 0.07,
+        "p99Arcsec": 0.14,
+        "largestSampledArcsec": 0.41,
+        "meanSignedArcsec": 0.02,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.06,
+            "p99Arcsec": 0.11,
+            "largestSampledArcsec": 0.19
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.04,
+            "p99Arcsec": 0.13,
+            "largestSampledArcsec": 0.23
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.1,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.15
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.1,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.41
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 0.08,
+        "p99Arcsec": 9.25,
+        "largestSampledArcsec": 11.56,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.06,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.2
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.04,
+            "p99Arcsec": 0.14,
+            "largestSampledArcsec": 0.23
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.1,
+            "p99Arcsec": 0.21,
+            "largestSampledArcsec": 0.22
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 2.3,
+            "p99Arcsec": 10.17,
+            "largestSampledArcsec": 11.56
+          }
+        ]
+      },
+      "medianImprovementFactor": 33.5,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1754,
+        "median": 0.45,
+        "p10": -2.15,
+        "p90": 2.53
+      }
+    },
+    {
+      "body": "Venus",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 2.33,
+        "p99Arcsec": 3.55,
+        "largestSampledArcsec": 3.64,
+        "meanSignedArcsec": -2.05
+      },
+      "corrected": {
+        "medianArcsec": 0.07,
+        "p99Arcsec": 0.15,
+        "largestSampledArcsec": 0.5,
+        "meanSignedArcsec": 0.02,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.06,
+            "p99Arcsec": 0.14,
+            "largestSampledArcsec": 0.27
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.04,
+            "p99Arcsec": 0.12,
+            "largestSampledArcsec": 0.15
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.1,
+            "p99Arcsec": 0.16,
+            "largestSampledArcsec": 0.17
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.1,
+            "p99Arcsec": 0.17,
+            "largestSampledArcsec": 0.5
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 0.08,
+        "p99Arcsec": 6.5,
+        "largestSampledArcsec": 6.94,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.07,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.3
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.04,
+            "p99Arcsec": 0.13,
+            "largestSampledArcsec": 0.16
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.1,
+            "p99Arcsec": 0.2,
+            "largestSampledArcsec": 0.2
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 2.31,
+            "p99Arcsec": 6.83,
+            "largestSampledArcsec": 6.94
+          }
+        ]
+      },
+      "medianImprovementFactor": 34.1,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1766,
+        "median": 0.63,
+        "p10": -1.68,
+        "p90": 2.55
+      }
+    },
+    {
+      "body": "Mars",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 1.19,
+        "p99Arcsec": 2.2,
+        "largestSampledArcsec": 2.33,
+        "meanSignedArcsec": -1.09
+      },
+      "corrected": {
+        "medianArcsec": 0.06,
+        "p99Arcsec": 0.17,
+        "largestSampledArcsec": 0.44,
+        "meanSignedArcsec": 0.01,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.06,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.35
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.04,
+            "p99Arcsec": 0.14,
+            "largestSampledArcsec": 0.44
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.09,
+            "p99Arcsec": 0.17,
+            "largestSampledArcsec": 0.17
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.07,
+            "p99Arcsec": 0.19,
+            "largestSampledArcsec": 0.28
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 0.08,
+        "p99Arcsec": 3.64,
+        "largestSampledArcsec": 3.93,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.07,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.35
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.04,
+            "p99Arcsec": 0.15,
+            "largestSampledArcsec": 0.43
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.09,
+            "p99Arcsec": 0.17,
+            "largestSampledArcsec": 0.19
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 1.27,
+            "p99Arcsec": 3.83,
+            "largestSampledArcsec": 3.93
+          }
+        ]
+      },
+      "medianImprovementFactor": 19,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1754,
+        "median": 0.89,
+        "p10": -3.39,
+        "p90": 4.19
+      }
+    },
+    {
+      "body": "Jupiter",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 0.25,
+        "p99Arcsec": 0.86,
+        "largestSampledArcsec": 0.95,
+        "meanSignedArcsec": -0.01
+      },
+      "corrected": {
+        "medianArcsec": 0.2,
+        "p99Arcsec": 0.54,
+        "largestSampledArcsec": 0.82,
+        "meanSignedArcsec": 0.16,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.07,
+            "p99Arcsec": 0.27,
+            "largestSampledArcsec": 0.33
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.17,
+            "p99Arcsec": 0.39,
+            "largestSampledArcsec": 0.43
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.3,
+            "p99Arcsec": 0.44,
+            "largestSampledArcsec": 0.45
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.39,
+            "p99Arcsec": 0.58,
+            "largestSampledArcsec": 0.82
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 0.18,
+        "p99Arcsec": 1.48,
+        "largestSampledArcsec": 1.96,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.07,
+            "p99Arcsec": 0.27,
+            "largestSampledArcsec": 0.33
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.17,
+            "p99Arcsec": 0.39,
+            "largestSampledArcsec": 0.44
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.3,
+            "p99Arcsec": 0.44,
+            "largestSampledArcsec": 0.46
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.5,
+            "p99Arcsec": 1.57,
+            "largestSampledArcsec": 1.96
+          }
+        ]
+      },
+      "medianImprovementFactor": 1.2,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1521,
+        "median": 9.96,
+        "p10": -77.42,
+        "p90": 61.86
+      }
+    },
+    {
+      "body": "Saturn",
+      "epochs": 1782,
+      "raw": {
+        "medianArcsec": 0.14,
+        "p99Arcsec": 0.61,
+        "largestSampledArcsec": 0.69,
+        "meanSignedArcsec": 0.07
+      },
+      "corrected": {
+        "medianArcsec": 0.18,
+        "p99Arcsec": 0.44,
+        "largestSampledArcsec": 0.64,
+        "meanSignedArcsec": 0.14,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.06,
+            "p99Arcsec": 0.27,
+            "largestSampledArcsec": 0.51
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.15,
+            "p99Arcsec": 0.39,
+            "largestSampledArcsec": 0.52
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.21,
+            "p99Arcsec": 0.31,
+            "largestSampledArcsec": 0.34
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.32,
+            "p99Arcsec": 0.47,
+            "largestSampledArcsec": 0.64
+          }
+        ]
+      },
+      "shipped": {
+        "medianArcsec": 0.16,
+        "p99Arcsec": 0.85,
+        "largestSampledArcsec": 1.07,
+        "byRegime": [
+          {
+            "regime": "pre1973",
+            "epochs": 652,
+            "medianArcsec": 0.06,
+            "p99Arcsec": 0.27,
+            "largestSampledArcsec": 0.52
+          },
+          {
+            "regime": "data1973to2023",
+            "epochs": 445,
+            "medianArcsec": 0.15,
+            "p99Arcsec": 0.39,
+            "largestSampledArcsec": 0.52
+          },
+          {
+            "regime": "prediction2023to2032",
+            "epochs": 79,
+            "medianArcsec": 0.21,
+            "p99Arcsec": 0.31,
+            "largestSampledArcsec": 0.33
+          },
+          {
+            "regime": "poly2000from2032",
+            "epochs": 606,
+            "medianArcsec": 0.38,
+            "p99Arcsec": 0.96,
+            "largestSampledArcsec": 1.07
+          }
+        ]
+      },
+      "medianImprovementFactor": 0.8,
+      "inferredOffsetMinusClockSeconds": {
+        "usableEpochs": 1211,
+        "median": 13.1,
+        "p10": -95.31,
+        "p90": 84.73
+      }
+    }
+  ]
+}

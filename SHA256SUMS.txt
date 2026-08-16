@@ -1,0 +1,13 @@
+# SHA-256 of retained evidence INPUTS only.
+# Outputs (*.output.json) are excluded by design: npm run reproduce rewrites them,
+# and their integrity is checked by git diff --exit-code after a reproduce run.
+
+01b6eab4be6bfaa63ac1e74dbac388941e3fc0a550f6c24b8f8ec6c8c179ec53  docs/evidence/ephemeris-calibration/horizons-jupiter.txt
+54353c1e7e1394a4ff8086475cdfcc8006cd68f82844db1a5375e50a78d64642  docs/evidence/ephemeris-calibration/horizons-mars.txt
+049b94965fb35d8a20de49995e8865e569b869d42b611d6b3da9238dad790a8f  docs/evidence/ephemeris-calibration/horizons-mercury.txt
+719ceeca8a6ac27e227e921bb17f0581f9d084d9df81cb4efc772fd059e1336c  docs/evidence/ephemeris-calibration/horizons-moon.txt
+6727e213a7c64f798b66f5170f1ced27efe78993f8757e7d5b2787840dfaaadb  docs/evidence/ephemeris-calibration/horizons-saturn.txt
+adf24eecbe41bcdfdfd37fb692a613205e99edd2e2836144ad0dc192a604ae9f  docs/evidence/ephemeris-calibration/horizons-sun.txt
+9699d373e7e220a85e56db7d7e550224b494b7b01b1d1e741349a89275bbcf86  docs/evidence/ephemeris-calibration/horizons-timescale.txt
+833998a265c3d7094072e42114d07491a05b2b704dfa3b63f9c9167d2c49b0c6  docs/evidence/ephemeris-calibration/horizons-venus.txt
+db8a264ec9ff570bcbb347c229062233083a4bd5883e00f983ca5b11a68ac97a  docs/evidence/ephemeris-calibration/swiss-production-audit.md

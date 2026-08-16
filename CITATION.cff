@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "DesiUtils ephemeris calibration"
+message: "If you refer to these measurements, please cite this artifact."
+type: dataset
+abstract: >-
+  A frozen calibration artifact for the DesiUtils browser ephemeris. Contains the harnesses, the
+  retained JPL Horizons reference fetches and the regenerated outputs behind two defects found and
+  fixed in the engine: UT-tagged Julian days passed to routines expecting dynamical-time JDE, and
+  sidereal longitudes retaining nutation in longitude because a mean ayanamsa was subtracted from
+  an apparent tropical longitude. The JPL Horizons legs and the nutation-in-longitude distribution
+  are reproducible from this artifact. The Swiss Ephemeris confirmation matrix it also records is
+  reviewer-reported and is not reproduced here.
+authors:
+  - name: "DesiUtils"
+    website: "https://desiutils.in"
+repository-code: "https://github.com/DesiUtils/ephemeris-calibration"
+url: "https://desiutils.in/blog/kundli-calculator-accuracy"
+license: MIT
+version: "1.0.0"
+keywords:
+  - ephemeris
+  - VSOP87
+  - delta-T
+  - nutation
+  - sidereal
+  - ayanamsa
+  - calibration
+  - reproducibility

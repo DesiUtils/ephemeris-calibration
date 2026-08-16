@@ -1,0 +1,27 @@
+{
+  "name": "desiutils-ephemeris-calibration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frozen calibration artifact for the DesiUtils browser ephemeris: harnesses, raw JPL Horizons inputs and regenerated outputs for a time-scale defect and a nutation-convention defect.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.15.1 <23"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "reproduce:calibration": "ts-node scripts/ephemeris-longitude-calibration.ts",
+    "reproduce:timescale": "ts-node scripts/ephemeris-timescale-control.ts",
+    "reproduce:nutation": "ts-node scripts/sidereal-nutation-convention-probe.ts",
+    "reproduce": "npm run reproduce:calibration && npm run reproduce:timescale && npm run reproduce:nutation",
+    "verify:hashes": "node scripts/verify-evidence-hashes.mjs",
+    "verify": "npm run typecheck && npm run verify:hashes && npm run reproduce && git diff --exit-code -- docs/evidence"
+  },
+  "dependencies": {
+    "astronomia": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.1",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  }
+}

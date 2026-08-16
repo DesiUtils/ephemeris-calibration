@@ -1,0 +1,508 @@
+{
+  "generatedBy": "scripts/ephemeris-longitude-calibration.ts",
+  "note": "Engine apparent geocentric ecliptic longitude vs JPL Horizons ObsEcLon (apparent, of date, geocentric = TROPICAL), 1782 epochs per body at 41-day steps over 1900-2100. Measures the engine AS SHIPPED, which passes a UT-derived JD into parameters named jde (Terrestrial Time). Sidereal conversion (Lahiri ayanamsa) is out of scope and carries its own separate claim. Rahu/Ketu excluded: the engine's mean node is a definition, not an observable, so accuracy is not a meaningful frame for it.",
+  "reference": "JPL Horizons OBSERVER, CENTER='500@399', QUANTITIES='31'",
+  "referenceFetched": "2026-08-16",
+  "sampling": {
+    "start": "1900-01-01",
+    "stopExclusiveish": "2100-01-01",
+    "stepDays": 41,
+    "epochsPerBody": 1782
+  },
+  "publishedClaimsForContextOnly": {
+    "boundaryOrbDeg": 0.3,
+    "boundaryOrbFrame": "sidereal (Swiss Ephemeris Lahiri) - NOT the frame measured here",
+    "jhoraParityClaim": "within one arcminute on two pinned charts - sidereal and end to end, so also not directly comparable to the tropical figures below"
+  },
+  "headline": {
+    "frame": "tropical apparent-of-date vs JPL Horizons ObsEcLon",
+    "sampledPositions": 12474,
+    "largestSampledErrorArcsec": 52.02,
+    "worstBodyP99Arcsec": 47.4
+  },
+  "results": [
+    {
+      "body": "Moon",
+      "horizonsCommand": "301",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 32.47,
+        "p90": 41.47,
+        "p95": 43.8,
+        "p99": 47.4,
+        "max": 52.02
+      },
+      "meanSignedErrorArcsec": -27.81,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1782,
+        "median": -61,
+        "p10": -73.4,
+        "p90": -19.1
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -7.03,
+          "maxAbsArcsec": 19.18
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -13.66,
+          "maxAbsArcsec": 23.9
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -19.54,
+          "maxAbsArcsec": 31.96
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": -30.59,
+          "maxAbsArcsec": 48.68
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": -36.72,
+          "maxAbsArcsec": 49.74
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": -38.76,
+          "maxAbsArcsec": 50.49
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": -38.37,
+          "maxAbsArcsec": 50.94
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": -37.88,
+          "maxAbsArcsec": 52.02
+        }
+      ]
+    },
+    {
+      "body": "Sun",
+      "horizonsCommand": "10",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 2.46,
+        "p90": 2.72,
+        "p95": 2.74,
+        "p99": 2.76,
+        "max": 2.76
+      },
+      "meanSignedErrorArcsec": -1.96,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1782,
+        "median": -60.7,
+        "p10": -64.8,
+        "p90": -20.7
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -0.51,
+          "maxAbsArcsec": 0.97
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -1.01,
+          "maxAbsArcsec": 1.2
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -1.42,
+          "maxAbsArcsec": 1.88
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": -2.2,
+          "maxAbsArcsec": 2.61
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": -2.58,
+          "maxAbsArcsec": 2.76
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": -2.65,
+          "maxAbsArcsec": 2.75
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": -2.65,
+          "maxAbsArcsec": 2.76
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": -2.66,
+          "maxAbsArcsec": 2.76
+        }
+      ]
+    },
+    {
+      "body": "Mercury",
+      "horizonsCommand": "199",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 2.24,
+        "p90": 4.9,
+        "p95": 5.4,
+        "p99": 6.01,
+        "max": 6.27
+      },
+      "meanSignedErrorArcsec": -2.05,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1754,
+        "median": -61.6,
+        "p10": -68.1,
+        "p90": -21.5
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -0.59,
+          "maxAbsArcsec": 2.03
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -1.11,
+          "maxAbsArcsec": 2.69
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -1.52,
+          "maxAbsArcsec": 3.72
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": -2.27,
+          "maxAbsArcsec": 5.75
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": -2.67,
+          "maxAbsArcsec": 6.23
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": -2.74,
+          "maxAbsArcsec": 6.18
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": -2.76,
+          "maxAbsArcsec": 6.27
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": -2.73,
+          "maxAbsArcsec": 6.16
+        }
+      ]
+    },
+    {
+      "body": "Venus",
+      "horizonsCommand": "299",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 2.33,
+        "p90": 3.46,
+        "p95": 3.49,
+        "p99": 3.55,
+        "max": 3.64
+      },
+      "meanSignedErrorArcsec": -2.05,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1766,
+        "median": -61.9,
+        "p10": -67.5,
+        "p90": -21.6
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -0.59,
+          "maxAbsArcsec": 1.31
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -1.11,
+          "maxAbsArcsec": 1.63
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -1.51,
+          "maxAbsArcsec": 2.48
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": -2.27,
+          "maxAbsArcsec": 3.34
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": -2.7,
+          "maxAbsArcsec": 3.57
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": -2.73,
+          "maxAbsArcsec": 3.61
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": -2.73,
+          "maxAbsArcsec": 3.63
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": -2.78,
+          "maxAbsArcsec": 3.64
+        }
+      ]
+    },
+    {
+      "body": "Mars",
+      "horizonsCommand": "499",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 1.19,
+        "p90": 2,
+        "p95": 2.1,
+        "p99": 2.2,
+        "max": 2.33
+      },
+      "meanSignedErrorArcsec": -1.09,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1754,
+        "median": -60.5,
+        "p10": -67.6,
+        "p90": -22.6
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -0.36,
+          "maxAbsArcsec": 0.79
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -0.62,
+          "maxAbsArcsec": 1.08
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -0.82,
+          "maxAbsArcsec": 1.39
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": -1.21,
+          "maxAbsArcsec": 2.07
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": -1.41,
+          "maxAbsArcsec": 2.18
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": -1.42,
+          "maxAbsArcsec": 2.31
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": -1.43,
+          "maxAbsArcsec": 2.3
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": -1.49,
+          "maxAbsArcsec": 2.33
+        }
+      ]
+    },
+    {
+      "body": "Jupiter",
+      "horizonsCommand": "599",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 0.25,
+        "p90": 0.57,
+        "p95": 0.73,
+        "p99": 0.86,
+        "max": 0.95
+      },
+      "meanSignedErrorArcsec": -0.01,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1521,
+        "median": -33.6,
+        "p10": -143.8,
+        "p90": 6.9
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -0.18,
+          "maxAbsArcsec": 0.41
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -0.13,
+          "maxAbsArcsec": 0.4
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -0.15,
+          "maxAbsArcsec": 0.65
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": -0.08,
+          "maxAbsArcsec": 0.66
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": 0.01,
+          "maxAbsArcsec": 0.76
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": 0.09,
+          "maxAbsArcsec": 0.85
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": 0.16,
+          "maxAbsArcsec": 0.95
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": 0.19,
+          "maxAbsArcsec": 0.94
+        }
+      ]
+    },
+    {
+      "body": "Saturn",
+      "horizonsCommand": "699",
+      "epochs": 1782,
+      "absErrorArcsec": {
+        "median": 0.14,
+        "p90": 0.44,
+        "p95": 0.53,
+        "p99": 0.61,
+        "max": 0.69
+      },
+      "meanSignedErrorArcsec": 0.07,
+      "impliedTimeOffsetSeconds": {
+        "usableEpochs": 1211,
+        "median": -27.5,
+        "p10": -164,
+        "p90": 24.3
+      },
+      "byEra": [
+        {
+          "era": "1900-1924",
+          "epochs": 223,
+          "meanSignedArcsec": -0.14,
+          "maxAbsArcsec": 0.52
+        },
+        {
+          "era": "1925-1949",
+          "epochs": 223,
+          "meanSignedArcsec": -0.09,
+          "maxAbsArcsec": 0.39
+        },
+        {
+          "era": "1950-1974",
+          "epochs": 223,
+          "meanSignedArcsec": -0.04,
+          "maxAbsArcsec": 0.44
+        },
+        {
+          "era": "1975-1999",
+          "epochs": 222,
+          "meanSignedArcsec": 0.05,
+          "maxAbsArcsec": 0.41
+        },
+        {
+          "era": "2000-2024",
+          "epochs": 223,
+          "meanSignedArcsec": 0.13,
+          "maxAbsArcsec": 0.61
+        },
+        {
+          "era": "2025-2049",
+          "epochs": 223,
+          "meanSignedArcsec": 0.18,
+          "maxAbsArcsec": 0.6
+        },
+        {
+          "era": "2050-2074",
+          "epochs": 222,
+          "meanSignedArcsec": 0.21,
+          "maxAbsArcsec": 0.68
+        },
+        {
+          "era": "2075-2099",
+          "epochs": 223,
+          "meanSignedArcsec": 0.23,
+          "maxAbsArcsec": 0.69
+        }
+      ]
+    }
+  ]
+}
