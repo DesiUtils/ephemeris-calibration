@@ -2,7 +2,8 @@
  * Lahiri (Chitrapaksha) Ayanamsa for a given Julian Day (UT or JDE - the
  * difference of <1 minute is negligible at our ±0.1° target tolerance).
  *
- * Reference epoch: 1900-01-01 12:00 UT. The Government of India's
+ * Reference epoch: 1900-01-01 00:00 UT (JD 2415020.5), matching REF_JD below.
+ * The Government of India's
  * Rashtriya Panchang (Calendar Reform Committee 1956) fixed Lahiri
  * ayanamsa at this epoch to the value below, and it advances at the
  * IAU 2000 mean precession rate.
@@ -12,8 +13,9 @@
  * 1.088 arcsec median, 1.922 arcsec at the sampled maximum. (The previous
  * "typically under 0.01 degrees / about 36 arcseconds" was never measured and
  * was conservative by ~19x.) Its linearisation error against the IAU 2006
- * precession polynomial peaks at 1.10 arcsec - see
- * scripts/ayanamsa-linearity-check.ts.
+ * precession polynomial peaks at 1.10 arcsec. (That check was run by
+ * scripts/ayanamsa-linearity-check.ts, an internal harness that is OUT OF SCOPE
+ * for this published artifact and is not included here.)
  */
 
 import nutation from "astronomia/nutation";

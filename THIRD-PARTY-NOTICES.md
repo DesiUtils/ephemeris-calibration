@@ -19,8 +19,8 @@ version 4.2.0, an MIT-licensed implementation of algorithms from Jean Meeus, *As
 Algorithms*, including VSOP87 planetary theory. It is installed from npm by `npm ci` and no
 astronomia source or data is copied into this repository.
 
-Copyright (c) commenthol and contributors. Full licence text ships with the package in
-`node_modules/astronomia/LICENSE` after installation.
+Copyright (c) 2013 Sonia Keys; Copyright (c) 2016 Commenthol. Both notices appear in the package's
+own `LICENSE`, which ships in `node_modules/astronomia/LICENSE` after installation.
 
 ## NASA JPL Horizons, retained responses
 
@@ -33,9 +33,18 @@ They were fetched as OBSERVER ephemerides, geocentric (`CENTER='500@399'`), usin
 for apparent ecliptic longitude and `QUANTITIES='30,31'` for the time-scale control fetch, at
 41-day steps. The underlying planetary and lunar ephemeris is DE441.
 
-JPL Horizons output is US Government work and is not subject to copyright protection in the United
-States. It is retained here for verification. Neither NASA nor JPL endorses DesiUtils or this
-analysis.
+These files are unmodified responses from NASA/JPL Horizons retained for verification. Credit:
+NASA/JPL-Caltech. No endorsement is implied.
+
+**They are not covered by this repository's MIT grant, and no reuse basis is asserted for them
+here.** An earlier draft of this file described Horizons output as US Government work not subject
+to copyright in the United States. That was withdrawn: JPL is a federally funded research and
+development centre managed by Caltech, a private institution, and JPL's own guidance states that
+the federal copyright limitation does not automatically apply to Caltech-produced material. The
+files are retained under a verification rationale, not under an asserted licence.
+
+**Consequence for archiving:** because a deposit-wide licence would extend to these files, this
+repository does not declare one. See `PROVENANCE.md`.
 
 ## Swiss Ephemeris, referenced but not redistributed
 

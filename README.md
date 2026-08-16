@@ -27,10 +27,12 @@ retained 1900 to 2100 grid, the five faster bodies imply a consistent lag:
 | Jupiter | -33.6 | -143.8 | +6.9 | 1521 |
 | Saturn | -27.5 | -164.0 | +24.3 | 1211 |
 
-Those five bodies differ in speed by more than two orders of magnitude and still agree, which is
-what identifies the cause as a clock rather than an ephemeris. Jupiter and Saturn are listed for
-completeness and are **not** evidence for the offset: they are slow enough that dividing a small
-error by a small motion is dominated by noise, which their p10/p90 spreads show directly.
+The five retained diagnostics span mean motions of roughly 0.5 to 13 deg/day, about 1.4 orders of
+magnitude. Their common implied offsets are diagnostic of a shared time-scale error; the
+independent Horizons TDB-UT control tests that diagnosis directly, reducing median residuals by 19
+to 34 times across those five bodies. Jupiter and Saturn are listed for completeness but are
+**not** evidence for the offset: dividing their small errors by their slow motion produces the wide
+p10/p90 spreads shown here.
 
 **The offset is not a constant.** It tracks delta-T and is epoch-dependent. The Moon's mean signed
 error ramps from -7.03 arcsec over 1900 to 1924 to -38.76 arcsec over 2025 to 2049. Do not quote
@@ -76,8 +78,9 @@ or data, would close this gap. It is not in this release.
 
 ## Pre-fix and post-fix state
 
-A reviewer could otherwise reasonably object that the harness manufactures a defect the published
-source does not contain. It does not, and both states are present:
+A reviewer could otherwise reasonably object that the harnesses reconstruct defects absent from the
+current source. This repository contains the post-fix source and explicit reconstructions of the
+relevant pre-fix operations; it does **not** contain a complete pre-fix source snapshot.
 
 - `lib/` is the **post-fix** source. It exports `utJulianDayToJDE`, and production converts through
   it before sampling.
@@ -88,9 +91,16 @@ source does not contain. It does not, and both states are present:
 - `scripts/ephemeris-timescale-control.ts` measures **both** legs. Line 262 evaluates through
   `utJulianDayToJDE`, which is the conversion production now uses.
 
-The scripts and the evidence files are byte-identical to their state in the source repository. They
-were not edited for publication, which is why the stale "AS SHIPPED" wording was left in place
-rather than rewritten. See `PROVENANCE.md` for commit provenance and hashes.
+For the sidereal defect specifically, the probe is a **frozen pre-fix diagnostic**: it predicts the
+removed implementation's residual term algebraically but does not execute that implementation. Its
+present-tense reference to "our `toSidereal`" and its `openQuestion` output field are historical.
+The reviewer-reported Swiss default-versus-`SEFLG_NONUT` check recorded in
+`swiss-production-audit.md` subsequently closed that question.
+
+The three measurement harnesses and the evidence files are byte-identical to their state in the
+source repository. They were not edited for publication, which is why the stale "AS SHIPPED"
+wording was left in place rather than rewritten. See `PROVENANCE.md` for commit provenance, for the
+two documented comment corrections, and for the files added specifically for this public artifact.
 
 ## Layout
 
@@ -107,8 +117,8 @@ docs/evidence/ephemeris-calibration/
 
 ## Reproducing
 
-Requires Node 22.15.1 (see `.nvmrc`). Exact dependency versions are pinned in `package.json` and
-locked in `package-lock.json`.
+Tested and pinned with Node 22.15.1 (see `.nvmrc`); `engines` accepts any 22.x at or above that.
+Exact dependency versions are pinned in `package.json` and locked in `package-lock.json`.
 
 ```bash
 npm ci
@@ -133,15 +143,22 @@ The steps can be run individually with `npm run typecheck`, `npm run verify:hash
   same phase. A 30-day step would have been, at 1.016 synodic months.
 - **Sampled, not bounded.** A 41-day cadence cannot exclude a larger excursion between samples.
   Every figure here is a largest *sampled* value.
-- **Nothing here is claimed from 2032 onward.** Past 2032 the astronomia and Swiss delta-T models
-  diverge and neither is truth; the divergence in the 2032+ column of the Swiss matrix is model
-  disagreement, not ephemeris error.
+- **The Swiss-Lahiri production accuracy claim stops before 2032.** The in-repository JPL and
+  nutation measurements do extend past 2031, and their post-2032 values are reported here. What is
+  not claimed is production accuracy out there: past 2032 the astronomia and Swiss delta-T models
+  diverge and neither is truth, so the 2032+ column of the Swiss matrix is model disagreement
+  rather than ephemeris error.
 
 ## Licence and third-party material
 
-The DesiUtils code in `lib/` and `scripts/` is MIT licensed. See `LICENSE`.
+**MIT covers the DesiUtils-authored code in `lib/` and `scripts/` only.** See `LICENSE`. It does
+not extend to anything else in this repository.
 
-`astronomia` is a separate MIT-licensed package and is not vendored here. The `horizons-*.txt`
-files are retained responses from NASA JPL Horizons. See `THIRD-PARTY-NOTICES.md`.
+`astronomia` is a separate MIT-licensed package (Sonia Keys, Commenthol) and is not vendored here.
+
+The `horizons-*.txt` files are unmodified responses from NASA/JPL Horizons, retained for
+verification and **not** covered by this repository's MIT grant. Credit: NASA/JPL-Caltech. No
+endorsement is implied. See `THIRD-PARTY-NOTICES.md`, which also records why a blanket repository
+licence is not asserted over them.
 
 Claim changes on the public site that followed from this work are summarised in `CLAIM-CHANGES.md`.

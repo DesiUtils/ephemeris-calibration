@@ -9,13 +9,15 @@ abstract: >-
   sidereal longitudes retaining nutation in longitude because a mean ayanamsa was subtracted from
   an apparent tropical longitude. The JPL Horizons legs and the nutation-in-longitude distribution
   are reproducible from this artifact. The Swiss Ephemeris confirmation matrix it also records is
-  reviewer-reported and is not reproduced here.
+  reviewer-reported and is not reproduced here. Licensing is mixed and no work-wide licence is
+  declared: MIT covers the DesiUtils-authored code in lib/ and scripts/ only, while the retained
+  NASA/JPL Horizons responses are kept under a verification rationale with no reuse basis asserted.
+  See THIRD-PARTY-NOTICES.md.
 authors:
   - name: "DesiUtils"
     website: "https://desiutils.in"
 repository-code: "https://github.com/DesiUtils/ephemeris-calibration"
 url: "https://desiutils.in/blog/kundli-calculator-accuracy"
-license: MIT
 version: "1.0.0"
 keywords:
   - ephemeris

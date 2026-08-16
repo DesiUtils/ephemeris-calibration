@@ -8,9 +8,10 @@ or architecture.
 
 > Typical precision: within 0.3 degrees of Swiss Ephemeris Lahiri
 
-Published from roughly 2026-08-01. The figure was self-labelled in the source as a disclosed
-heuristic and explicitly not a Swiss-calibrated bound. Nothing had ever measured it. That is the
-gap this work closed.
+The 0.3 degree figure first shipped on **2026-04-22**, with the free Kundli generator. The
+dedicated accuracy article that stated it as "typical precision" followed on **2026-08-01**. The
+figure was self-labelled in the source as a disclosed heuristic and explicitly not a
+Swiss-calibrated bound. Nothing had ever measured it. That is the gap this work closed.
 
 ## The claim that replaced it
 
@@ -44,7 +45,9 @@ warnings, and method-specific orbs. They are different quantities that happened 
 
 ## Verification
 
-The measurements behind the replacement claim regenerate from this repository:
+The in-repository JPL controls and nutation prediction regenerate from this repository. The Swiss
+measurements behind the replacement public claim do **not**; they are preserved as
+reviewer-reported evidence.
 
 ```bash
 npm ci
