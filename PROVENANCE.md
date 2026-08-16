@@ -48,10 +48,23 @@ which is imported by anything in this repository. The remaining thirteen declara
 the astronomia modules used here. The file is a type declaration for a public MIT package and
 contains no DesiUtils logic.
 
-**`lib/astrology/ayanamsa.ts`, two comment corrections, no code change.**
+**`lib/astrology/ayanamsa.ts`, three comment corrections, no code change.**
 
-Both were found in review and are documented rather than silently applied. Neither touches
-executable code, and `npm run verify` is unaffected.
+All were found in review and are documented rather than silently applied. None touches executable
+code, and `npm run verify` is unaffected.
+
+0. **A false provenance claim, withdrawn 2026-08-16 after the Swiss Ephemeris mailing list.** The
+   docblock stated that the Government of India's Rashtriya Panchang (Calendar Reform Committee
+   1956) fixed the ayanamsa at the 1900 epoch to the value in `REF_AYANAMSA_DEG`, and that it
+   advances at the IAU 2000 mean precession rate. Neither claim was sourced and both are wrong.
+   Per Swiss Ephemeris general documentation Appendix E the definition is anchored at
+   1956-03-21 (23deg 15' 00", revised to 23deg 15' 00".658 in IAE 1989, and true rather than
+   mean), with IAU1976 precession and Wahr 1980 nutation as the original models. The constants
+   here are a fitted linear approximation, and the docblock now says so. Measured at that anchor,
+   `lahiriTrueAyanamsa` lands 0.89 arcsec from the defined value; the module's own nutation term
+   there is 16.77 arcsec, which reproduces Appendix E's argument for the value being true.
+   Prompted by Alois Treindl's reply on swisseph@groups.io pointing at general documentation
+   section 2.8.12, which describes this exact method as "too simplistic" for very high accuracy.
 
 1. The docblock read "Reference epoch: 1900-01-01 12:00 UT" while the constant beneath it is
    `REF_JD = 2415020.5`, which is 1900-01-01 **00:00** UT and is correctly annotated as such on its

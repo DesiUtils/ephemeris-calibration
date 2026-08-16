@@ -148,6 +148,19 @@ The steps can be run individually with `npm run typecheck`, `npm run verify:hash
   same phase. A 30-day step would have been, at 1.016 synodic months.
 - **Sampled, not bounded.** A 41-day cadence cannot exclude a larger excursion between samples.
   Every figure here is a largest *sampled* value.
+- **The two legs use two references, and those references are mutually exclusive in Swiss.** The
+  JPL Horizons leg and the reviewer-reported Swiss leg are not measured against the same
+  conventions. Swiss Ephemeris general documentation Appendix C shows that reproducing Horizons
+  with `swetest` requires `-jplhora`, which "tells the program to emulate the methods of JPL
+  horizons". More decisively, Alois Treindl pointed out on swisseph@groups.io (2026-08-16) that
+  `plaus_iflag()` in the Swiss source forces the issue: when `SEFLG_SIDEREAL` is set it also sets
+  `SEFLG_NONUT` and clears `SEFLG_JPLHOR | SEFLG_JPLHOR_APPROX`. **So a sidereal position and a
+  Horizons-emulating position cannot be obtained from Swiss at the same time**, and the two legs
+  here should not be treated as commensurable to better than the difference between those methods.
+- **That same branch explains the `SEFLG_NONUT` equality reported in `swiss-production-audit.md`.**
+  It is not a property of the sampled grid; it is guaranteed by the flag handling. Swiss sidereal
+  output is a mean-equinox quantity by construction, which is why an engine that cancels nutation
+  (subtracting a nutation-inclusive ayanamsa from an apparent tropical longitude) agrees with it.
 - **The Swiss-Lahiri production accuracy claim stops before 2032.** The in-repository JPL and
   nutation measurements do extend past 2031, and their post-2032 values are reported here. What is
   not claimed is production accuracy out there: past 2032 the astronomia and Swiss delta-T models

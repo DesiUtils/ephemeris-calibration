@@ -2,11 +2,36 @@
  * Lahiri (Chitrapaksha) Ayanamsa for a given Julian Day (UT or JDE - the
  * difference of <1 minute is negligible at our ±0.1° target tolerance).
  *
- * Reference epoch: 1900-01-01 00:00 UT (JD 2415020.5), matching REF_JD below.
- * The Government of India's
- * Rashtriya Panchang (Calendar Reform Committee 1956) fixed Lahiri
- * ayanamsa at this epoch to the value below, and it advances at the
- * IAU 2000 mean precession rate.
+ * WHAT THIS IS, stated accurately after a 2026-08-16 correction. The constants
+ * below are a FITTED LINEAR APPROXIMATION anchored at 1900-01-01 00:00 UT
+ * (JD 2415020.5). They are NOT the definition of the Lahiri ayanamsa, and an
+ * earlier version of this docblock wrongly claimed the Calendar Reform
+ * Committee fixed the value at this epoch and that it advances at the IAU 2000
+ * mean precession rate. Neither claim was sourced. Both are withdrawn.
+ *
+ * THE ACTUAL DEFINITION, per the Swiss Ephemeris general documentation
+ * Appendix E ("How to compare the Swiss Ephemeris Lahiri Ayanamsha with Indian
+ * Astronomical Ephemeris"): Lahiri was originally defined as 23deg 15' 00" at
+ * 1956-03-21 00:00 Ephemeris Time, revised in Indian Astronomical Ephemeris
+ * 1989 (p. 556 footnote) to 23deg 15' 00".658. Appendix E concludes that the
+ * revised value is the TRUE ayanamsa, not the mean, on the grounds that
+ * nutation on that date exceeded 16". The ayanamsa's original models are
+ * IAU1976 precession (Lieske) and Wahr 1980 nutation, NOT IAU 2000.
+ *
+ * MEASURED AGAINST THAT DEFINITION 2026-08-16: at the 1956-03-21 anchor this
+ * module's lahiriTrueAyanamsa returns 23deg 14' 59.768", which is 0.89 arcsec
+ * from the defined 23deg 15' 00".658. The mean value is 17.66 arcsec away, and
+ * the nutation term this module computes at that epoch is 16.77 arcsec, which
+ * independently reproduces Appendix E's own "over 16 arcsec" argument for the
+ * value being true rather than mean.
+ *
+ * KNOWN-SIMPLISTIC BY CONSTRUCTION. Swiss Ephemeris general documentation
+ * section 2.8.12 describes exactly this method (an initial value at a t0 such
+ * as 1 Jan 1900 plus a precession rate) and states it "is not really clean
+ * because the two formulae do not operate on exactly the same plane", is
+ * adequate "in an ordinary astrologer's practice", and is "too simplistic" for
+ * very high accuracy over long periods. That is an accepted limitation here,
+ * bounded by the measurements below, not an unknown.
  *
  * MEASURED 2026-08-16 against Swiss Ephemeris 2.10.03 Lahiri over 1,782 epochs
  * spanning 1900-2100: this MEAN model differs from Swiss's MEAN Lahiri by
